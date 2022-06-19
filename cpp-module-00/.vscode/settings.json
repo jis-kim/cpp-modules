@@ -61,6 +61,7 @@
 		"utility": "cpp",
 		"vector": "cpp",
 		"memory_resource": "cpp",
-		"iomanip": "cpp"
+		"iomanip": "cpp",
+		"clocale": "cpp"
 	}
 }

@@ -7,17 +7,19 @@
 
 #ifndef PHONEBOOK_HPP_
 #define PHONEBOOK_HPP_
+#include <string>
+
 #include "Contact.hpp"
 
 class PhoneBook {
  private:
-  Contact *contacts_;
+  Contact contacts_[8];
   int size_;
 
  public:
-  PhoneBook(void);
-  void AddContact(Contact contact);
+  int AddContact(Contact contact);
   void SearchContact(int index);
+  void DeleteLastContact();
   void PrintPhoneBook();
 };
 

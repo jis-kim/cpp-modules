@@ -8,14 +8,16 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				=  #Name of program
+NAME				=  phonebook
 
-INC_DIR			= ./includes/
+INC_DIR			= ./
 
-SRCS_DIR		= ./src/
+SRCS_DIR		= ./
 
 SRCS				= $(addprefix $(SRCS_DIR), \
 								main.cpp \
+								PhoneBook.cpp \
+								Contact.cpp \
 							)
 
 OBJS				= ${SRCS:%.cpp=%.o}
@@ -48,7 +50,7 @@ $(NAME)		:	$(OBJS)
 
 
 %.o				:	%.cpp
-						@$(CXX) $(CXXFLAGS) -I$(INC_DIR)  -c $< -o $@
+						@$(CXX) $(CXXFLAGS) -I$(INC_DIR) -c $< -o $@
 						@echo $(BOLD)$(L_GREEN) Compiling with $(CXXFLAGS) -I$(INC_DIR) ...$(RESET)
 						@echo $(GREEN) [$(notdir $^)] to [$(notdir $@)] $(RESET)
 

@@ -42,6 +42,7 @@ class Contact {
   void SetDarkestSecret(std::string darkest_secret);
 
   void PrintContact();
+  void PrintSpecificContact(void);
 };
 
 #endif  // CONTACT_HPP_

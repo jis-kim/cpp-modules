@@ -58,6 +58,16 @@ void Contact::PrintContact(void) {
   PrintField(first_name_);
   PrintField(last_name_);
   PrintField(nickname_);
+  std::cout << "\n";
+}
+
+void Contact::PrintSpecificContact(void) {
+  std::cout << "|";
+  std::cout.width(10);
+  std::cout << std::right << index_ << '|';
+  PrintField(first_name_);
+  PrintField(last_name_);
+  PrintField(nickname_);
   PrintField(phone_number_);
   PrintField(darkest_secret_);
   std::cout << "\n";

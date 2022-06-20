@@ -63,5 +63,8 @@
 		"memory_resource": "cpp",
 		"iomanip": "cpp",
 		"clocale": "cpp"
-	}
+	},
+	"cSpell.words": [
+		"Jisu"
+	]
 }

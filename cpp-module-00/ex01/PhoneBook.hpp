@@ -14,12 +14,14 @@
 class PhoneBook {
  private:
   Contact contacts_[8];
-  int size_;
+  unsigned int size_;
+  unsigned int oldest_;
 
  public:
-  int AddContact(Contact contact);
-  void SearchContact(int index);
-  void DeleteLastContact();
+  PhoneBook(void);
+  unsigned int GetSize(void);
+  int AddContact(Contact& contact);
+  void SearchContact(unsigned int index);
   void PrintPhoneBook();
 };
 

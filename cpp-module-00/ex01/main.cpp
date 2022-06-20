@@ -75,6 +75,7 @@ int main(void) {
       } else {
         phoneBook.PrintPhoneBook();
         unsigned int index;
+        // index 유효성 검사
         std::cout << "Enter an index to search: ";
         std::cin >> index;
         std::getline(std::cin, cmd);

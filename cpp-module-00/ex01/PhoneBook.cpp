@@ -26,13 +26,26 @@ void PhoneBook::SearchContact(unsigned int index) {
   if (index < 0 || index >= this->size_) {
     std::cout << "Invalid index\n";
   } else {
-    this->contacts_[index].PrintContact();
+    this->contacts_[index].PrintSpecificContact();
   }
 }
 
 void PhoneBook::PrintPhoneBook() {
+  std::cout << "---------------------------------------------\n";
+  std::cout << "|";
+  std::cout.width(10);
+  std::cout << "index" << '|';
+  std::cout.width(10);
+  std::cout << "first name" << '|';
+  std::cout.width(10);
+  std::cout << "last name" << '|';
+  std::cout.width(10);
+  std::cout << "nickname"
+            << "|\n";
+  std::cout << "---------------------------------------------\n";
   for (unsigned int i = 0; i < this->size_; i++) {
     this->contacts_[i].PrintContact();
+    std::cout << "---------------------------------------------\n";
   }
 }
 

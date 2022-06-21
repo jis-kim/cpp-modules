@@ -62,13 +62,10 @@ void Contact::PrintContact(void) {
 }
 
 void Contact::PrintSpecificContact(void) {
-  std::cout << "|";
-  std::cout.width(10);
-  std::cout << std::right << index_ << '|';
-  PrintField(first_name_);
-  PrintField(last_name_);
-  PrintField(nickname_);
-  PrintField(phone_number_);
-  PrintField(darkest_secret_);
-  std::cout << "\n";
+  std::cout << "index: " << index_ << '\n';
+  std::cout << "first name: " << first_name_ << '\n';
+  std::cout << "last name: " << last_name_ << '\n';
+  std::cout << "nickname🤣: " << nickname_ << '\n';
+  std::cout << "phone number📞: " << phone_number_ << '\n';
+  std::cout << "darkest secret💀: " << darkest_secret_ << '\n';
 }

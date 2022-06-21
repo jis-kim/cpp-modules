@@ -7,6 +7,7 @@
 
 #ifndef PHONEBOOK_HPP_
 #define PHONEBOOK_HPP_
+#include <sstream>
 #include <string>
 
 #include "Contact.hpp"

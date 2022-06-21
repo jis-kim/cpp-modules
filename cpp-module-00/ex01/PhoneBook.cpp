@@ -11,15 +11,15 @@ PhoneBook::PhoneBook(void) : size_(0), oldest_(0) {
   memset(contacts_, 0, sizeof(contacts_));
 }
 
-int PhoneBook::AddContact(Contact &contact) {
+void PhoneBook::AddContact(Contact &contact) {
   if (this->size_ == 8) {
-    if (oldest_ == 7) oldest_ = 0;
-    this->contacts_[oldest_++] = contact;
+    this->contacts_[oldest_] = contact;
   } else {
     this->contacts_[this->size_] = contact;
     this->size_++;
   }
-  return size_;
+  oldest_++;
+  if (oldest_ == 8) oldest_ = 0;
 }
 
 void PhoneBook::SearchContact(unsigned int index) {
@@ -49,4 +49,5 @@ void PhoneBook::PrintPhoneBook() {
   }
 }
 
-unsigned int PhoneBook::GetSize(void) { return this->size_; }
+unsigned int PhoneBook::GetSize(void) { return size_; }
+unsigned int PhoneBook::GetOldest(void) { return oldest_; }

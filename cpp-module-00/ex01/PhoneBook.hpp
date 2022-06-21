@@ -21,7 +21,8 @@ class PhoneBook {
  public:
   PhoneBook(void);
   unsigned int GetSize(void);
-  int AddContact(Contact& contact);
+  unsigned int GetOldest(void);
+  void AddContact(Contact& contact);
   void SearchContact(unsigned int index);
   void PrintPhoneBook();
 };

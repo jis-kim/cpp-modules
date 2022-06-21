@@ -67,7 +67,7 @@ void InputContact(PhoneBook& phoneBook) {
     std::getline(std::cin, darkest_secret);
     if (!CheckStreamStatus(std::cin)) return;
   }
-  Contact contact(phoneBook.GetSize() + 1, first_name, last_name, nickname,
+  Contact contact(phoneBook.GetOldest() + 1, first_name, last_name, nickname,
                   phone_number, darkest_secret);
   phoneBook.AddContact(contact);
   std::cout << "Successfully added a contact\n";
@@ -87,8 +87,9 @@ void SearchContact(PhoneBook& phoneBook, unsigned int size) {
       phoneBook.SearchContact(index - 1);
     else
       std::cout << "Index is out of range.\n";
+  } else {
+    std::cout << "Invalid index\n";
   }
-  std::cout << "Invalid index\n";
 }
 
 int main(void) {
@@ -98,6 +99,7 @@ int main(void) {
   while (!std::cin.fail()) {
     std::cout << "Enter a command(ADD, SEARCH, EXIT): ";
     std::getline(std::cin, cmd);
+    CheckStreamStatus(std::cin);
     if (cmd.compare("ADD") == 0) {
       InputContact(phoneBook);
     } else if (cmd.compare("SEARCH") == 0) {

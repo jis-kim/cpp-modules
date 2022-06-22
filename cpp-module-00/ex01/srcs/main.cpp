@@ -111,7 +111,7 @@ int main(void) {
         SearchContact(phoneBook, size);
       }
     } else if (cmd.compare("EXIT") == 0) {
-      std::cout << "Goodbye!👋\n";
+      std::cout << "Good bye!👋\n";
       return (0);
     } else {
       std::cout << "Invalid command\n";

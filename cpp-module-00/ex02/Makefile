@@ -8,16 +8,15 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				=  phonebook
+NAME				=  TheJobOfYourDream
 
 INC_DIR			= ./includes/
 
 SRCS_DIR		= ./srcs/
 
 SRCS				= $(addprefix $(SRCS_DIR), \
-								main.cpp \
-								PhoneBook.cpp \
-								Contact.cpp \
+								tests.cpp \
+								Account.cpp \
 							)
 
 OBJS				= ${SRCS:%.cpp=%.o}

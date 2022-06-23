@@ -8,7 +8,7 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				=  TheJobOfYourDream
+NAME				=  badcompany
 
 INC_DIR			= ./includes/
 

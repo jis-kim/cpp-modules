@@ -4,6 +4,7 @@
  * @date 2022-06-24
  * @brief test code of Zombie class.
  */
+
 #include "Zombie.hpp"
 
 int testZombieHorde(const int& cnt, const std::string name) throw() {

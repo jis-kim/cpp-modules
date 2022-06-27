@@ -11,7 +11,7 @@ PhoneBook::PhoneBook(void) : size_(0), oldest_(0) {
   memset(contacts_, 0, sizeof(contacts_));
 }
 
-void PhoneBook::AddContact(Contact &contact) {
+void PhoneBook::addContact(Contact &contact) {
   if (this->size_ == 8) {
     this->contacts_[oldest_] = contact;
   } else {
@@ -22,15 +22,15 @@ void PhoneBook::AddContact(Contact &contact) {
   if (oldest_ == 8) oldest_ = 0;
 }
 
-void PhoneBook::SearchContact(unsigned int index) {
+void PhoneBook::searchContact(unsigned int index) {
   if (index < 0 || index >= this->size_) {
     std::cout << "Invalid index\n";
   } else {
-    this->contacts_[index].PrintSpecificContact();
+    this->contacts_[index].printSpecificContact();
   }
 }
 
-void PhoneBook::PrintPhoneBook() {
+void PhoneBook::printPhoneBook() {
   std::cout << "---------------------------------------------\n";
   std::cout << "|";
   std::cout.width(10);
@@ -44,10 +44,10 @@ void PhoneBook::PrintPhoneBook() {
             << "|\n";
   std::cout << "---------------------------------------------\n";
   for (unsigned int i = 0; i < this->size_; i++) {
-    this->contacts_[i].PrintContact();
+    this->contacts_[i].printContact();
     std::cout << "---------------------------------------------\n";
   }
 }
 
-unsigned int PhoneBook::GetSize(void) { return size_; }
-unsigned int PhoneBook::GetOldest(void) { return oldest_; }
+unsigned int PhoneBook::getSize(void) { return size_; }
+unsigned int PhoneBook::getOldest(void) { return oldest_; }

@@ -25,23 +25,23 @@ Contact::Contact(int index, std::string first_name, std::string last_name,
       phone_number_(phone_number),
       darkest_secret_(darkest_secret) {}
 
-std::string Contact::GetFirstName(void) { return first_name_; }
-std::string Contact::GetLastName(void) { return last_name_; }
-std::string Contact::GetNickname(void) { return nickname_; }
-std::string Contact::GetPhoneNumber(void) { return phone_number_; }
-std::string Contact::GetDarkestSecret(void) { return darkest_secret_; }
+std::string Contact::getFirstName(void) { return first_name_; }
+std::string Contact::getLastName(void) { return last_name_; }
+std::string Contact::getNickname(void) { return nickname_; }
+std::string Contact::getPhoneNumber(void) { return phone_number_; }
+std::string Contact::getDarkestSecret(void) { return darkest_secret_; }
 
-void Contact::SetFirstName(std::string first_name) { first_name_ = first_name; }
-void Contact::SetLastName(std::string last_name) { last_name_ = last_name; }
-void Contact::SetNickname(std::string nickname) { nickname_ = nickname; }
-void Contact::SetPhoneNumber(std::string phone_number) {
+void Contact::setFirstName(std::string first_name) { first_name_ = first_name; }
+void Contact::setLastName(std::string last_name) { last_name_ = last_name; }
+void Contact::setNickname(std::string nickname) { nickname_ = nickname; }
+void Contact::setPhoneNumber(std::string phone_number) {
   phone_number_ = phone_number;
 }
-void Contact::SetDarkestSecret(std::string darkest_secret) {
+void Contact::setDarkestSecret(std::string darkest_secret) {
   darkest_secret_ = darkest_secret;
 }
 
-void Contact::PrintField(std::string field) {
+void Contact::printField(std::string field) {
   std::string str = field.substr(0, 9);
   if (field.size() > 9) {
     std::cout.width(9);
@@ -51,17 +51,17 @@ void Contact::PrintField(std::string field) {
   std::cout << std::right << str << '|';
 }
 
-void Contact::PrintContact(void) {
+void Contact::printContact(void) {
   std::cout << "|";
   std::cout.width(10);
   std::cout << std::right << index_ << '|';
-  PrintField(first_name_);
-  PrintField(last_name_);
-  PrintField(nickname_);
+  printField(first_name_);
+  printField(last_name_);
+  printField(nickname_);
   std::cout << "\n";
 }
 
-void Contact::PrintSpecificContact(void) {
+void Contact::printSpecificContact(void) {
   std::cout << "index: " << index_ << '\n';
   std::cout << "first name: " << first_name_ << '\n';
   std::cout << "last name: " << last_name_ << '\n';

@@ -18,7 +18,7 @@ class Contact {
   std::string first_name_, last_name_, nickname_, phone_number_,
       darkest_secret_;
 
-  void PrintField(std::string field);
+  void printField(std::string field);
 
  public:
   Contact(void);
@@ -27,22 +27,22 @@ class Contact {
           std::string phone_number, std::string nickname,
           std::string darkest_secret);
 
-  int GetIndex();
-  std::string GetFirstName();
-  std::string GetLastName();
-  std::string GetNickname();
-  std::string GetPhoneNumber();
-  std::string GetDarkestSecret();
+  int getIndex();
+  std::string getFirstName();
+  std::string getLastName();
+  std::string getNickname();
+  std::string getPhoneNumber();
+  std::string getDarkestSecret();
 
-  void SetIndex(int index);
-  void SetFirstName(std::string first_name);
-  void SetLastName(std::string last_name);
-  void SetNickname(std::string nickname);
-  void SetPhoneNumber(std::string phone_number);
-  void SetDarkestSecret(std::string darkest_secret);
+  void setIndex(int index);
+  void setFirstName(std::string first_name);
+  void setLastName(std::string last_name);
+  void setNickname(std::string nickname);
+  void setPhoneNumber(std::string phone_number);
+  void setDarkestSecret(std::string darkest_secret);
 
-  void PrintContact();
-  void PrintSpecificContact(void);
+  void printContact();
+  void printSpecificContact(void);
 };
 
 #endif  // CONTACT_HPP_

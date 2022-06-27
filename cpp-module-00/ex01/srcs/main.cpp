@@ -7,7 +7,7 @@
 
 #include "PhoneBook.hpp"
 
-bool CheckStreamStatus(std::stringstream& stream) {
+bool checkStreamStatus(std::stringstream& stream) {
   if (stream.fail()) {
     if (stream.bad()) {
       std::cout << "istream has badbit.\n";
@@ -21,7 +21,7 @@ bool CheckStreamStatus(std::stringstream& stream) {
   return (true);
 }
 
-bool CheckStreamStatus(std::istream& stream) {
+bool checkStreamStatus(std::istream& stream) {
   if (stream.eof()) {
     std::cout << "Why did you do this?👻\n";
     exit(EXIT_SUCCESS);
@@ -39,52 +39,52 @@ bool CheckStreamStatus(std::istream& stream) {
   return (true);
 }
 
-void InputContact(PhoneBook& phoneBook) {
+void inputContact(PhoneBook& phoneBook) {
   std::string first_name(""), last_name(""), nickname(""), phone_number(""),
       darkest_secret("");
   while (first_name.size() == 0) {
     std::cout << "Enter a first name: ";
     std::getline(std::cin, first_name);
-    if (!CheckStreamStatus(std::cin)) return;
+    if (!checkStreamStatus(std::cin)) return;
   }
   while (last_name.size() == 0) {
     std::cout << "Enter a last name: ";
     std::getline(std::cin, last_name);
-    if (!CheckStreamStatus(std::cin)) return;
+    if (!checkStreamStatus(std::cin)) return;
   }
   while (nickname.size() == 0) {
     std::cout << "Enter a nickname🤣: ";
     std::getline(std::cin, nickname);
-    if (!CheckStreamStatus(std::cin)) return;
+    if (!checkStreamStatus(std::cin)) return;
   }
   while (phone_number.size() == 0) {
     std::cout << "Enter a phone number📞: ";
     std::getline(std::cin, phone_number);
-    if (!CheckStreamStatus(std::cin)) return;
+    if (!checkStreamStatus(std::cin)) return;
   }
   while (darkest_secret.size() == 0) {
     std::cout << "Enter a darkest secret💀: ";
     std::getline(std::cin, darkest_secret);
-    if (!CheckStreamStatus(std::cin)) return;
+    if (!checkStreamStatus(std::cin)) return;
   }
-  Contact contact(phoneBook.GetOldest() + 1, first_name, last_name, nickname,
+  Contact contact(phoneBook.getOldest() + 1, first_name, last_name, nickname,
                   phone_number, darkest_secret);
-  phoneBook.AddContact(contact);
+  phoneBook.addContact(contact);
   std::cout << "Successfully added a contact\n";
 }
 
-void SearchContact(PhoneBook& phoneBook, unsigned int size) {
+void searchContact(PhoneBook& phoneBook, unsigned int size) {
   std::string index_str;
   std::cout << "Enter an index to search: ";
   std::getline(std::cin, index_str);
   if (index_str.size() == 1) {
-    if (!CheckStreamStatus(std::cin)) return;
+    if (!checkStreamStatus(std::cin)) return;
     unsigned int index;
     std::stringstream stream(index_str);
     stream >> index;
-    if (!CheckStreamStatus(stream)) return;
+    if (!checkStreamStatus(stream)) return;
     if (index <= size)
-      phoneBook.SearchContact(index - 1);
+      phoneBook.searchContact(index - 1);
     else
       std::cout << "Index is out of range.\n";
   } else {
@@ -99,16 +99,16 @@ int main(void) {
   while (!std::cin.fail()) {
     std::cout << "Enter a command(ADD, SEARCH, EXIT): ";
     std::getline(std::cin, cmd);
-    CheckStreamStatus(std::cin);
+    checkStreamStatus(std::cin);
     if (cmd.compare("ADD") == 0) {
-      InputContact(phoneBook);
+      inputContact(phoneBook);
     } else if (cmd.compare("SEARCH") == 0) {
-      unsigned int size = phoneBook.GetSize();
+      unsigned int size = phoneBook.getSize();
       if (size == 0) {
         std::cout << "PhoneBook is empty\n";
       } else {
-        phoneBook.PrintPhoneBook();
-        SearchContact(phoneBook, size);
+        phoneBook.printPhoneBook();
+        searchContact(phoneBook, size);
       }
     } else if (cmd.compare("EXIT") == 0) {
       std::cout << "Good bye!👋\n";

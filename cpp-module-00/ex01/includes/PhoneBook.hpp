@@ -20,11 +20,11 @@ class PhoneBook {
 
  public:
   PhoneBook(void);
-  unsigned int GetSize(void);
-  unsigned int GetOldest(void);
-  void AddContact(Contact& contact);
-  void SearchContact(unsigned int index);
-  void PrintPhoneBook();
+  unsigned int getSize(void);
+  unsigned int getOldest(void);
+  void addContact(Contact& contact);
+  void searchContact(unsigned int index);
+  void printPhoneBook();
 };
 
 #endif  // PHONEBOOK_HPP_

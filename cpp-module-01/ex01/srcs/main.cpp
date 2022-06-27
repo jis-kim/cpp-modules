@@ -37,6 +37,5 @@ int main(int argc, char** argv) {
   if (ss.fail()) {
     std::cout << "N must be Integer type\n";
   }
-  int ret = testZombieHorde(N, argv[2]);
-  return (ret);
+  return (testZombieHorde(N, argv[2]));
 }

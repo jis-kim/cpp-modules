@@ -23,4 +23,5 @@ int main(void) {
   std::cout << "string variable: " << str << '\n';
   std::cout << "string pointer: " << *stringPTR << '\n';
   std::cout << "string reference: " << stringREF << '\n';
+  return 0;
 }

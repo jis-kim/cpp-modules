@@ -16,4 +16,7 @@ void ZombieTest(void) {
   delete chunjae;
 }
 
-int main(void) { ZombieTest(); }
+int main(void) {
+  ZombieTest();
+  return 0;
+}

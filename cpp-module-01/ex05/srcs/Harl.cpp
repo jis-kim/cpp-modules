@@ -7,8 +7,6 @@
 
 #include "Harl.hpp"
 
-Harl::Harl(void) : ptr_(&Harl::debug) {}
-
 void Harl::debug(void) { std::cout << "[ DEBUG ]\n I'm debug\n"; }
 
 void Harl::info(void) {
@@ -25,8 +23,16 @@ void Harl::error(void) {
 
 void Harl::complain(std::string level) {
   if (level.size() == 0) {
-    std::cout << "ㅡㅡ Try Again !!!!!!!!!!!\n";
+    std::cout << "Try Again !!!!!!!!!!!\n";
     exit(1);
   }
-  (this->*ptr_)();  //왜 this 해야됨??
+  void (Harl::*ptr[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning,
+                                &Harl::error};
+  std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+  for (int i = 0; i < 4; i++) {
+    if (levels[i] == level) {
+      (this->*ptr[i])();
+      return;
+    }
+  }
 }

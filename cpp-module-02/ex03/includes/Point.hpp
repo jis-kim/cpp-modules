@@ -12,13 +12,24 @@
 
 class Point {
  private:
-  Fixed x_;
-  Fixed y_;
+  const Fixed x_;
+  const Fixed y_;
 
  public:
   Point(void);
-  Point(const Point& x, const Point& y);
+  Point(const Fixed& x, const Fixed& y);
   Point(const Point& src);
+
+  Point& operator=(const Point& rhs);
+
+  void setX(const Fixed& x);
+  const Fixed getX(void) const;
+  void setY(const Fixed& x);
+  const Fixed getY(void) const;
+
+  ~Point(void);
 };
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

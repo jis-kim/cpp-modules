@@ -26,7 +26,7 @@ Fixed::Fixed(const float num) : value_((int)roundf(num * (1 << fBits_))) {
 
 Fixed& Fixed::operator=(const Fixed& rhs) {
   std::cout << "Copy assignment operator called\n";
-  this->value_ = rhs.value_;
+  this->value_ = rhs.getRawBits();
   return (*this);
 }
 

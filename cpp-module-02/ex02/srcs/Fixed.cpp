@@ -18,7 +18,7 @@ Fixed::Fixed(const int num) : value_(num << fBits_) {}
 Fixed::Fixed(const float num) : value_((int)roundf(num * (1 << fBits_))) {}
 
 Fixed& Fixed::operator=(const Fixed& rhs) {
-  this->value_ = rhs.value_;
+  this->value_ = rhs.getRawBits();
   return (*this);
 }
 

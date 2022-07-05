@@ -21,7 +21,7 @@ class Fixed {
   Fixed(const int num);
   Fixed(const float num);
 
-  Fixed& operator=(const Fixed& src);
+  Fixed& operator=(const Fixed& rhs);
 
   float toFloat(void) const;
   int toInt(void) const;
@@ -32,6 +32,6 @@ class Fixed {
   ~Fixed(void);
 };
 
-std::ostream& operator<<(std::ostream& os, const Fixed& src);
+std::ostream& operator<<(std::ostream& os, const Fixed& rhs);
 
 #endif  // FIXED_HPP

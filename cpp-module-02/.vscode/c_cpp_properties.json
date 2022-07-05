@@ -3,7 +3,7 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/ex01/includes"
+                "${workspaceFolder}/ex02/includes"
             ],
             "defines": [],
             "macFrameworkPath": [

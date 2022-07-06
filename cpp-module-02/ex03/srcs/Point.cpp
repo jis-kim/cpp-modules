@@ -5,9 +5,28 @@
  * @brief
  */
 
-#include "Point.cpp"
+#include "Point.hpp"
 
-void Point::setX(const Fixed& x) { x_ = x; }
-Fixed Point::getX(void) { return (x_); }
-void Point::setY(const Fixed& x) { y_ = y; }
-Fixed Point::getY(void) { return (y_); }
+Point::Point(void) : x_(0), y_(0) {}
+
+Point::Point(const Fixed x, const Fixed y) : x_(x), y_(y) {}
+
+Point::Point(const Point& src) : x_(src.getX()), y_(src.getY()) {}
+
+Point& Point::operator=(const Point& rhs) {
+  (void)rhs;
+  return (*this);
+}
+
+Point Point::operator-(const Point& rhs) const {
+  return (Point(x_ - rhs.getX(), y_ - rhs.getY()));
+}
+
+const Fixed Point::getX(void) const { return (x_); }
+const Fixed Point::getY(void) const { return (y_); }
+
+Point::~Point(void) {}
+
+std::ostream& operator<<(std::ostream& out, const Point& src) {
+  return out << "(" << src.getX() << ", " << src.getY() << ")";
+}

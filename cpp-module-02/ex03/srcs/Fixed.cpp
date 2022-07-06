@@ -11,7 +11,7 @@
 
 Fixed::Fixed(void) : value_(0) {}
 
-Fixed::Fixed(const Fixed& rhs) { this->value_ = rhs.getRawBits(); }
+Fixed::Fixed(const Fixed& src) { this->value_ = src.getRawBits(); }
 
 Fixed::Fixed(const int num) : value_(num << fBits_) {}
 
@@ -32,22 +32,26 @@ void Fixed::setRawBits(int bits) { value_ = bits; }
 
 // arithmeticoperator
 Fixed Fixed::operator+(const Fixed& rhs) const {
-  Fixed temp(this->toFloat() + rhs.toFloat());
+  Fixed temp;
+  temp.setRawBits(this->value_ + rhs.getRawBits());
   return temp;
 }
 
 Fixed Fixed::operator-(const Fixed& rhs) const {
-  Fixed temp(this->toFloat() - rhs.toFloat());
+  Fixed temp;
+  temp.setRawBits(this->value_ - rhs.getRawBits());
   return temp;
 }
 
 Fixed Fixed::operator*(const Fixed& rhs) const {
-  Fixed temp(this->toFloat() * rhs.toFloat());
+  Fixed temp;
+  temp.setRawBits(this->value_ * rhs.getRawBits());
   return temp;
 }
 
 Fixed Fixed::operator/(const Fixed& rhs) const {
-  Fixed temp(this->toFloat() / rhs.toFloat());
+  Fixed temp;
+  temp.setRawBits(this->value_ / rhs.getRawBits());
   return temp;
 }
 

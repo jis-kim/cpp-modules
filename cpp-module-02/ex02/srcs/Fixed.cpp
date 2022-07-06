@@ -32,22 +32,26 @@ void Fixed::setRawBits(int bits) { value_ = bits; }
 
 // arithmeticoperator
 Fixed Fixed::operator+(const Fixed& rhs) const {
-  Fixed temp(this->toFloat() + rhs.toFloat());
+  Fixed temp;
+  temp.setRawBits(this->value_ + rhs.getRawBits());
   return temp;
 }
 
 Fixed Fixed::operator-(const Fixed& rhs) const {
-  Fixed temp(this->toFloat() - rhs.toFloat());
+  Fixed temp;
+  temp.setRawBits(this->value_ - rhs.getRawBits());
   return temp;
 }
 
 Fixed Fixed::operator*(const Fixed& rhs) const {
-  Fixed temp(this->toFloat() * rhs.toFloat());
+  Fixed temp;
+  temp.setRawBits(this->value_ * rhs.getRawBits());
   return temp;
 }
 
 Fixed Fixed::operator/(const Fixed& rhs) const {
-  Fixed temp(this->toFloat() / rhs.toFloat());
+  Fixed temp;
+  temp.setRawBits(this->value_ / rhs.getRawBits());
   return temp;
 }
 

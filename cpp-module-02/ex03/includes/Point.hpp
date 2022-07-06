@@ -10,6 +10,11 @@
 
 #include "Fixed.hpp"
 
+#define L_CYAN "\033[1;96m"
+#define L_RED "\033[1;31m"
+#define L_YELLOW "\033[1;33m"
+#define RESET "\033[0m"
+
 class Point {
  private:
   const Fixed x_;
@@ -17,19 +22,19 @@ class Point {
 
  public:
   Point(void);
-  Point(const Fixed& x, const Fixed& y);
+  Point(const Fixed x, const Fixed y);
   Point(const Point& src);
 
   Point& operator=(const Point& rhs);
+  Point operator-(const Point& rhs) const;
 
-  void setX(const Fixed& x);
   const Fixed getX(void) const;
-  void setY(const Fixed& x);
   const Fixed getY(void) const;
 
   ~Point(void);
 };
 
+std::ostream& operator<<(std::ostream& out, const Point& rhs);
 bool bsp(Point const a, Point const b, Point const c, Point const point);
 
-#endif
+#endif  // POINT_HPP

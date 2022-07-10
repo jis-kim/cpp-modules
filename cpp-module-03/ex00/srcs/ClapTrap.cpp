@@ -10,7 +10,7 @@
 #include <iostream>
 
 ClapTrap::ClapTrap(void)
-    : name_(""), hitPoints_(10), energyPoints_(0), attackDamage_(0) {
+    : name_(""), hitPoints_(10), energyPoints_(10), attackDamage_(0) {
   std::cout << "Default Constructor called\n";
 }
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(const ClapTrap& src)
 }
 
 ClapTrap::ClapTrap(std::string name)
-    : name_(name), hitPoints_(10), energyPoints_(0), attackDamage_(0) {
+    : name_(name), hitPoints_(10), energyPoints_(10), attackDamage_(0) {
   std::cout << "Constructor by name called\n";
 }
 
@@ -38,18 +38,33 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& rhs) {
 }
 
 void ClapTrap::attack(const std::string& target) {
-  std::cout << "ClapTrap " << L_YELLOW << name_ << RESET << " attacks "
-            << L_YELLOW << target << RESET << " ," << L_RED << " causing "
-            << L_RED << attackDamage_ << RESET << " points of damage!\n"
+  if (!energyPoints_ || !hitPoints_) {
+    std::cout << L_YELLOW << name_ << RESET << " has no energy...\n";
+    return;
+  }
+  --energyPoints_;
+  std::cout << L_YELLOW << name_ << RESET << " attacks " << L_YELLOW << target
+            << RESET << " ," << L_RED << " causing " << L_RED << attackDamage_
+            << RESET << " points of damage!\n"
             << RESET;
 }
 void ClapTrap::takeDamage(unsigned int amount) {
-  std::cout << "ClapTrap " << L_YELLOW << name_ << L_RED << " takes " << amount
-            << RESET << " points of damage!\n";
+  if (amount < hitPoints_)
+    hitPoints_ -= amount;
+  else
+    hitPoints_ = 0;
+  std::cout << L_YELLOW << name_ << L_RED << " takes " << amount << RESET
+            << " points of damage!\n";
 }
 void ClapTrap::beRepaired(unsigned int amount) {
-  std::cout << "ClapTrap " << L_YELLOW << name_ << L_CYAN " is repaired "
-            << amount << RESET << " points of damage!\n";
+  if (!energyPoints_ || !hitPoints_) {
+    std::cout << L_YELLOW << name_ << RESET << " has no energy...\n";
+    return;
+  }
+  --energyPoints_;
+  hitPoints_ += amount;
+  std::cout << L_YELLOW << name_ << L_CYAN << " is repaired " << amount << RESET
+            << " points of damage!\n";
 }
 
 void ClapTrap::setName(const std::string name) { name_ = name; }

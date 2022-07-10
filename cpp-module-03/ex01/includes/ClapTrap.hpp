@@ -11,6 +11,7 @@
 #define L_CYAN "\033[1;96m"
 #define L_RED "\033[1;31m"
 #define L_YELLOW "\033[1;33m"
+#define L_PURPLE "\033[1;35m"
 #define RESET "\033[0m"
 
 #include <string>

@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void) {
   ClapTrap jule("yongjule");
@@ -21,11 +21,12 @@ int main(void) {
             << L_YELLOW << "jule.\n\n"
             << RESET;
 
-  ClapTrap nkim("nkim");
+  ScavTrap nkim("nkim");
 
   ghan.attack(jule.getName());
   jule.takeDamage(ghan.getAttackDamage());
   nkim.attack(jule.getName());
+  nkim.guardGate();
   jule.takeDamage(nkim.getAttackDamage());
 
   std::cout << L_YELLOW << "\nghan" << RESET

@@ -10,15 +10,32 @@
 #include <iostream>
 
 ScavTrap::ScavTrap(void) : ClapTrap() {
-  hitPoints_ = 10;
-  // TODO: fill extra variables for scavtrap
-  std::cout << L_CYAN << "ClapTrap " << RESET << "Default Constructor called\n";
+  hitPoints_ = 100;
+  energyPoints_ = 50;
+  attackDamage_ = 20;
+  std::cout << L_CYAN << "ScavTrap " << RESET << "Default Constructor called\n";
 }
-ScavTrap::ScavTrap(const ScavTrap& src);
-ScavTrap::ScavTrap(std::string name);
+ScavTrap::ScavTrap(const ScavTrap& src) : ClapTrap(src) {
+  std::cout << L_CYAN << "ScavTrap " << RESET << "Copy Constructor called\n";
+}
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+  std::cout << L_CYAN << "ScavTrap " << RESET << "Constructor by name called\n";
+}
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& rhs);
+// override
+ScavTrap& ScavTrap::operator=(const ScavTrap& rhs) {
+  name_ = rhs.getName();
+  hitPoints_ = rhs.getHitPoints();
+  energyPoints_ = rhs.getEnergyPoints();
+  attackDamage_ = rhs.getAttackDamage();
+  std::cout << L_CYAN << "ScavTrap " << RESET << "Assignment operator called\n";
+  return (*this);
+}
 
-void ScavTrap::guardGate(void);
+void ScavTrap::guardGate(void) {
+  std::cout << "ScavTrap " << name_ << " is now in Gatekeeper mode\n";
+}
 
-~ScavTrap::ScavTrap(void);
+ScavTrap::~ScavTrap(void) {
+  std::cout << L_CYAN << "ScavTrap " << RESET << name_ << " Destrctor called\n";
+}

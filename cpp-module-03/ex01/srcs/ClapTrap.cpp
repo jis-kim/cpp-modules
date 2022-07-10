@@ -11,7 +11,8 @@
 
 ClapTrap::ClapTrap(void)
     : name_(""), hitPoints_(10), energyPoints_(0), attackDamage_(0) {
-  std::cout << L_CYAN << "ClapTrap " << RESET << "Default Constructor called\n";
+  std::cout << L_PURPLE << "ClapTrap " << RESET
+            << "Default Constructor called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& src)
@@ -19,12 +20,13 @@ ClapTrap::ClapTrap(const ClapTrap& src)
       hitPoints_(src.getHitPoints()),
       energyPoints_(src.getEnergyPoints()),
       attackDamage_(src.getAttackDamage()) {
-  std::cout << "Copy Constructor called\n";
+  std::cout << L_PURPLE << "ClapTrap " << RESET << "Copy Constructor called\n";
 }
 
 ClapTrap::ClapTrap(std::string name)
     : name_(name), hitPoints_(10), energyPoints_(0), attackDamage_(0) {
-  std::cout << "Constructor by name called\n";
+  std::cout << L_PURPLE << "ClapTrap " << RESET
+            << "Constructor by name called\n";
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& rhs) {
@@ -33,7 +35,8 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& rhs) {
   energyPoints_ = rhs.getEnergyPoints();
   attackDamage_ = rhs.getAttackDamage();
 
-  std::cout << "Assignment operator called\n";
+  std::cout << L_PURPLE << "ClapTrap " << RESET
+            << "Assignment operator called\n";
   return (*this);
 }
 
@@ -66,4 +69,7 @@ unsigned int ClapTrap::getHitPoints(void) const { return hitPoints_; }
 unsigned int ClapTrap::getEnergyPoints(void) const { return energyPoints_; }
 unsigned int ClapTrap::getAttackDamage(void) const { return attackDamage_; }
 
-ClapTrap::~ClapTrap(void) { std::cout << "Destrctor called\n"; }
+ClapTrap::~ClapTrap(void) {
+  std::cout << L_PURPLE << "ClapTrap " << RESET << name_
+            << " Destrctor called\n";
+}

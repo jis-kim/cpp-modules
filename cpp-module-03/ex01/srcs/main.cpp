@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author Jisu Kim (hellojs242@gmail.com)
  * @date 2022-07-07
- * @brief test ClapTrap class
+ * @brief test ScavTrap class
  */
 
 #include <iostream>
@@ -10,41 +10,73 @@
 #include "ScavTrap.hpp"
 
 int main(void) {
-  ClapTrap jule("yongjule");
-  ClapTrap ghan("ghan");
+  ScavTrap jule("yongjule");
+  ScavTrap ghan("ghan");
 
-  jule.attack(ghan.getName());
-  ghan.takeDamage(jule.getAttackDamage());
+  if (jule.isActionable()) {
+    jule.attack(ghan.getName());
+    ghan.takeDamage(jule.getAttackDamage());
+  } else {
+    std::cout << L_YELLOW << jule.getName() << RESET << " has no energy...\n";
+  }
 
-  std::cout << L_YELLOW << "\nghan" << RESET
+  std::cout << L_YELLOW << "\n"
+            << ghan.getName() << RESET
             << " was upset so he decided to call nkim and get back at "
-            << L_YELLOW << "jule.\n\n"
+            << L_YELLOW << jule.getName() << ".\n\n"
             << RESET;
 
-  ScavTrap nkim("nkim");
+  ClapTrap nkim("nkim");
 
-  ghan.attack(jule.getName());
-  jule.takeDamage(ghan.getAttackDamage());
-  nkim.attack(jule.getName());
-  nkim.guardGate();
-  jule.takeDamage(nkim.getAttackDamage());
+  if (ghan.isActionable()) {
+    ghan.attack(jule.getName());
+    jule.takeDamage(ghan.getAttackDamage());
+  } else {
+    std::cout << L_YELLOW << ghan.getName() << RESET << " has no energy...\n";
+  }
+  if (nkim.isActionable()) {
+    nkim.attack(jule.getName());
+    jule.takeDamage(nkim.getAttackDamage());
+  } else {
+    std::cout << L_YELLOW << nkim.getName() << RESET << " has no energy...\n";
+  }
 
-  std::cout << L_YELLOW << "\nghan" << RESET
+  std::cout << L_YELLOW << "\n"
+            << ghan.getName() << RESET
             << " was able to clone himself so he did it.\n\n";
 
-  ClapTrap ghan2(ghan);
-  ClapTrap ghan3;
+  ScavTrap ghan2(ghan);
+  ScavTrap ghan3;
   ghan3 = ghan;
 
-  ghan.attack(jule.getName());
-  jule.takeDamage(ghan.getAttackDamage());
-  ghan2.attack(jule.getName());
-  jule.takeDamage(ghan2.getAttackDamage());
-  ghan3.attack(jule.getName());
-  jule.takeDamage(ghan3.getAttackDamage());
+  if (ghan.isActionable()) {
+    ghan.attack(jule.getName());
+    jule.takeDamage(ghan.getAttackDamage());
+  } else {
+    std::cout << L_YELLOW << ghan.getName() << RESET << " has no energy...\n";
+  }
+  if (ghan2.isActionable()) {
+    ghan2.attack(jule.getName());
+    jule.takeDamage(ghan2.getAttackDamage());
+  } else {
+    std::cout << L_YELLOW << ghan2.getName() << RESET << " has no energy...\n";
+  }
+  ghan3.setEnergyPoints(0);
+  if (ghan3.isActionable()) {
+    ghan.attack(jule.getName());
+    jule.takeDamage(ghan3.getAttackDamage());
+  } else {
+    std::cout << L_YELLOW << ghan3.getName() << RESET << " has no energy...\n";
+  }
 
-  std::cout << "\nbut" << L_YELLOW << " ghan" << RESET
-            << " was too weak to damage someone...\n\n";
+  if (jule.isActionable()) {
+    jule.beRepaired(10);
+  } else {
+    std::cout << L_YELLOW << jule.getName() << RESET << " has no energy...\n";
+  }
+
+  std::cout << L_YELLOW << ghan.getName() << RESET
+            << "\'s revenge is successfully ended...\n\n";
 
   return EXIT_SUCCESS;
 }

@@ -19,6 +19,9 @@ ScavTrap::ScavTrap(const ScavTrap& src) : ClapTrap(src) {
   std::cout << L_CYAN << "ScavTrap " << RESET << "Copy Constructor called\n";
 }
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+  hitPoints_ = 100;
+  energyPoints_ = 50;
+  attackDamage_ = 20;
   std::cout << L_CYAN << "ScavTrap " << RESET << "Constructor by name called\n";
 }
 

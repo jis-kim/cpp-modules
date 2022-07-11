@@ -43,6 +43,8 @@ class ClapTrap {
   unsigned int getEnergyPoints(void) const;
   unsigned int getAttackDamage(void) const;
 
+  bool isActionable(void) const;
+
   ~ClapTrap(void);
 };
 

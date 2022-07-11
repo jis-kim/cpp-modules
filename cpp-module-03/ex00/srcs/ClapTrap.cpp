@@ -38,10 +38,6 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& rhs) {
 }
 
 void ClapTrap::attack(const std::string& target) {
-  if (!energyPoints_ || !hitPoints_) {
-    std::cout << L_YELLOW << name_ << RESET << " has no energy...\n";
-    return;
-  }
   --energyPoints_;
   std::cout << L_YELLOW << name_ << RESET << " attacks " << L_YELLOW << target
             << RESET << " ," << L_RED << " causing " << L_RED << attackDamage_
@@ -51,16 +47,14 @@ void ClapTrap::attack(const std::string& target) {
 void ClapTrap::takeDamage(unsigned int amount) {
   if (amount < hitPoints_)
     hitPoints_ -= amount;
-  else
+  else {
     hitPoints_ = 0;
+    amount = 0;
+  }
   std::cout << L_YELLOW << name_ << L_RED << " takes " << amount << RESET
             << " points of damage!\n";
 }
 void ClapTrap::beRepaired(unsigned int amount) {
-  if (!energyPoints_ || !hitPoints_) {
-    std::cout << L_YELLOW << name_ << RESET << " has no energy...\n";
-    return;
-  }
   --energyPoints_;
   hitPoints_ += amount;
   std::cout << L_YELLOW << name_ << L_CYAN << " is repaired " << amount << RESET
@@ -80,5 +74,9 @@ std::string ClapTrap::getName(void) const { return name_; }
 unsigned int ClapTrap::getHitPoints(void) const { return hitPoints_; }
 unsigned int ClapTrap::getEnergyPoints(void) const { return energyPoints_; }
 unsigned int ClapTrap::getAttackDamage(void) const { return attackDamage_; }
+
+bool ClapTrap::isActionable(void) const {
+  return (energyPoints_ && hitPoints_);
+}
 
 ClapTrap::~ClapTrap(void) { std::cout << "Destrctor called\n"; }

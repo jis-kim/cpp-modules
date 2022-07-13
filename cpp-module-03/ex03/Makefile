@@ -8,7 +8,7 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				= fragtrap
+NAME				= diamondtrap
 
 INC_DIR			= ./includes/
 

@@ -64,7 +64,7 @@ int main(void) {
   }
   ghan3.setEnergyPoints(0);
   if (ghan3.isActionable()) {
-    ghan.attack(jule.getName());
+    ghan3.attack(jule.getName());
     jule.takeDamage(ghan3.getAttackDamage());
   } else {
     std::cout << L_YELLOW << ghan3.getName() << RESET << " has no energy...\n";
@@ -75,15 +75,28 @@ int main(void) {
   } else {
     std::cout << L_YELLOW << jule.getName() << RESET << " has no energy...\n";
   }
-  std::cout << L_YELLOW << jule.getName() << RESET
-            << "call his friend mcha(10011011)\n";
+  std::cout << L_YELLOW << '\n'
+            << jule.getName() << RESET << " calls his friend " << L_YELLOW
+            << "mcha(10011011)\n\n"
+            << RESET;
 
   DiamondTrap mcha("10011011");
-  mcha.setName("mcha");
-  mcha.attack(ghan.getName());
-
+  if (mcha.isActionable()) {
+    mcha.attack(ghan.getName());
+    ghan.takeDamage(mcha.getAttackDamage());
+  } else {
+    std::cout << L_YELLOW << mcha.getName() << RESET << " has no energy...\n";
+  }
   std::cout << L_YELLOW << ghan.getName() << RESET
             << "\'s revenge is successfully ended...\n\n";
+
+  mcha.whoAmI();
+  DiamondTrap jisu(mcha);
+  jisu.whoAmI();
+  jisu.setName("jisujisu");
+  jisu.whoAmI();
+
+  std::cout << "\n\n";
 
   return EXIT_SUCCESS;
 }

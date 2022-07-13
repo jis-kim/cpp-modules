@@ -65,7 +65,7 @@ int main(void) {
   }
   ghan3.setEnergyPoints(0);
   if (ghan3.isActionable()) {
-    ghan.attack(jule.getName());
+    ghan3.attack(jule.getName());
     jule.takeDamage(ghan3.getAttackDamage());
   } else {
     std::cout << L_YELLOW << ghan3.getName() << RESET << " has no energy...\n";

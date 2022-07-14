@@ -41,11 +41,13 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& rhs) {
 }
 
 void ClapTrap::attack(const std::string& target) {
-  std::cout << L_YELLOW << name_ << RESET << " attacks " << L_YELLOW << target
-            << RESET << " ," << L_RED << " causing " << L_RED << attackDamage_
-            << RESET << " points of damage!\n"
+  std::cout << L_PURPLE << "ClapTrap " << RESET << L_YELLOW << name_ << RESET
+            << " attacks " << L_YELLOW << target << RESET << " ," << L_RED
+            << " causing " << L_RED << attackDamage_ << RESET
+            << " points of damage!\n"
             << RESET;
 }
+
 void ClapTrap::takeDamage(unsigned int amount) {
   if (amount <= hitPoints_)
     hitPoints_ -= amount;

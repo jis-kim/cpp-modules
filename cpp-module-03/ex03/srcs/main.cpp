@@ -90,6 +90,9 @@ int main(void) {
   std::cout << L_YELLOW << ghan.getName() << RESET
             << "\'s revenge is successfully ended...\n\n";
 
+  mcha.guardGate();
+  mcha.highFiveGuys();
+  std::cout << '\n';
   mcha.whoAmI();
   DiamondTrap jisu(mcha);
   jisu.whoAmI();

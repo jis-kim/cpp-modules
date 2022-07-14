@@ -38,6 +38,15 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& rhs) {
   return (*this);
 }
 
+// override
+void ScavTrap::attack(const std::string& target) {
+  std::cout << L_CYAN << "ScavTrap " << RESET << L_YELLOW << name_ << RESET
+            << " attacks " << L_YELLOW << target << RESET << " ," << L_RED
+            << " causing " << L_RED << attackDamage_ << RESET
+            << " points of damage!\n"
+            << RESET;
+}
+
 void ScavTrap::guardGate(void) {
   std::cout << L_CYAN << "ScavTrap " << RESET << name_
             << " is now in Gatekeeper mode\n";

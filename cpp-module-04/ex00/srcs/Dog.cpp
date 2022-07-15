@@ -22,10 +22,11 @@ Dog::Dog(Dog& src) : Animal(src) {
 Dog& Dog::operator=(const Dog& rhs) {
   type_ = rhs.type_;
   std::cout << L_YELLOW << "Dog " << RESET << "Assignment Operator.\n";
+  return (*this);
 }
 
-void Dog::makeSound(void) {
-  std::cout << L_YELLOW << "Dog " << RESET << "BARK!!!!!!!!! BARK!!!!!!!!!!.\n";
+void Dog::makeSound(void) const {
+  std::cout << L_YELLOW << type_ << RESET << " BARK!!!!!!!!! BARK!!!!!!!!!!.\n";
 }
 
-Dog::~Dog(void) { std::cout << L_YELLOW << "Dog " << RESET << "Descrutcot.\n"; }
+Dog::~Dog(void) { std::cout << L_YELLOW << "Dog " << RESET << "Destructor.\n"; }

@@ -22,10 +22,11 @@ Cat::Cat(Cat& src) : Animal(src) {
 Cat& Cat::operator=(const Cat& rhs) {
   type_ = rhs.type_;
   std::cout << L_CYAN << "Cat " << RESET << "Assignment Operator.\n";
+  return (*this);
 }
 
-void Cat::makeSound(void) {
-  std::cout << L_CYAN << "Cat " << RESET << "M E O W M E O W.\n";
+void Cat::makeSound(void) const {
+  std::cout << L_CYAN << type_ << RESET << " M E O W M E O W.\n";
 }
 
-Cat::~Cat(void) { std::cout << L_CYAN << "Cat " << RESET << "Descrutcot.\n"; }
+Cat::~Cat(void) { std::cout << L_CYAN << "Cat " << RESET << "Destructor.\n"; }

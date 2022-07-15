@@ -19,7 +19,7 @@ class Cat : public Animal {
 
   Cat& operator=(const Cat& rhs);
 
-  void makeSound(void);
+  void makeSound(void) const;
 
   ~Cat(void);
 };

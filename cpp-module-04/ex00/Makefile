@@ -19,6 +19,9 @@ SRCS				= $(addprefix $(SRCS_DIR), \
 								Animal.cpp \
 								Cat.cpp \
 								Dog.cpp \
+								WrongAnimal.cpp \
+								WrongCat.cpp \
+								WrongDog.cpp \
 							)
 
 OBJS				= ${SRCS:%.cpp=%.o}

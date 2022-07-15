@@ -20,14 +20,15 @@ Animal::Animal(Animal& src) : type_(src.type_) {
 Animal& Animal::operator=(const Animal& rhs) {
   type_ = rhs.type_;
   std::cout << L_BLUE << "Animal " << RESET << "Assignment Operator.\n";
+  return (*this);
 }
 
-void Animal::makeSound(void) {
-  std::cout << L_BLUE << "Animal " << RESET << "1101101 that means m(cha(r))\n";
+void Animal::makeSound(void) const {
+  std::cout << L_BLUE << type_ << RESET << " 10011011 that means m(cha(r))\n";
 }
 
 std::string Animal::getType(void) const { return (type_); }
 
 Animal::~Animal(void) {
-  std::cout << L_BLUE << "Animal " << RESET << "Descrutcot.\n";
+  std::cout << L_BLUE << "Animal " << RESET << "Destructor.\n";
 }

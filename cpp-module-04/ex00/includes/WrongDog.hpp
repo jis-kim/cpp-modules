@@ -15,7 +15,6 @@ class WrongDog : public WrongAnimal {
  public:
   WrongDog(void);
   WrongDog(const WrongDog& src);
-  WrongDog(std::string name);
 
   WrongDog& operator=(const WrongDog& rhs);
 

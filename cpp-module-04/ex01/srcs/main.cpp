@@ -12,7 +12,7 @@
 #include "WrongCat.hpp"
 #include "WrongDog.hpp"
 
-int main() {
+void test00(void) {
   std::cout << "\n================= Normal Case ==================\n\n";
   const Animal* meta = new Animal();
   const Animal* j = new Dog();
@@ -55,6 +55,25 @@ int main() {
   delete wa;
   delete wd;
   delete wc;
+}
 
+void test01(void) {
+  Animal* animals[100];
+
+  int i;
+  for (i = 0; i < 50; i++) animals[i] = new Cat();
+  for (; i < 100; i++) animals[i] = new Dog();
+
+  for (i = 0; i < 100; i++) {
+    delete animals[i];
+  }
+}
+
+void exitHandler() { system("leaks brain"); }
+int main() {
+  test00();
+  test01();
+
+  atexit(exitHandler);
   return 0;
 }

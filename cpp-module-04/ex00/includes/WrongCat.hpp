@@ -15,7 +15,6 @@ class WrongCat : public WrongAnimal {
  public:
   WrongCat(void);
   WrongCat(const WrongCat& src);
-  WrongCat(std::string name);
 
   WrongCat& operator=(const WrongCat& rhs);
 

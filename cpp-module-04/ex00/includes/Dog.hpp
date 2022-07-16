@@ -14,7 +14,6 @@ class Dog : public Animal {
  public:
   Dog(void);
   Dog(const Dog& src);
-  Dog(std::string name);
 
   Dog& operator=(const Dog& rhs);
 

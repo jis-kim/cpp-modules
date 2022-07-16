@@ -8,7 +8,7 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				=  brian
+NAME				=  brain
 
 INC_DIR			= ./includes/
 

@@ -18,7 +18,6 @@ class Cat : public Animal {
  public:
   Cat(void);
   Cat(const Cat& src);
-  Cat(std::string name);
 
   Cat& operator=(const Cat& rhs);
 

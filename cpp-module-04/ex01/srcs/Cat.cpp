@@ -11,10 +11,11 @@
 
 Cat::Cat(void) : Animal() {
   type_ = "Cat";
+  brain_ = new Brain();
   std::cout << L_CYAN << "Cat " << RESET << "Defalut Constructor.\n";
 }
 
-Cat::Cat(Cat& src) : Animal(src) {
+Cat::Cat(const Cat& src) : Animal(src) {
   type_ = "Cat";
   std::cout << L_CYAN << "Cat " << RESET << "Copy Constructor.\n";
 }

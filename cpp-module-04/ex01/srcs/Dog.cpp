@@ -14,7 +14,7 @@ Dog::Dog(void) : Animal() {
   std::cout << L_YELLOW << "Dog " << RESET << "Defalut Constructor.\n";
 }
 
-Dog::Dog(Dog& src) : Animal(src) {
+Dog::Dog(const Dog& src) : Animal(src) {
   type_ = "Dog";
   std::cout << L_YELLOW << "Dog " << RESET << "Copy Constructor.\n";
 }

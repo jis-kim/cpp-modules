@@ -5,15 +5,24 @@
  * @brief Brain of animals - ex01
  */
 
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
+
+#include <string>
+
 class Brain {
  private:
   std::string ideas_[100];
 
  public:
-  Brian(void);
-  Brian(const Brain& src);
+  Brain(void);
+  Brain(const Brain& src);
 
   Brain& operator=(const Brain& rhs);
 
-  std::string[] getIdeas(void) const;
-}
+  const std::string* getIdeas(void) const;
+
+  ~Brain(void);
+};
+
+#endif

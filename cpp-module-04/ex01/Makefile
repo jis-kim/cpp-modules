@@ -8,7 +8,7 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				=  animal
+NAME				=  brian
 
 INC_DIR			= ./includes/
 
@@ -22,6 +22,7 @@ SRCS				= $(addprefix $(SRCS_DIR), \
 								WrongAnimal.cpp \
 								WrongCat.cpp \
 								WrongDog.cpp \
+								Brain.cpp \
 							)
 
 OBJS				= ${SRCS:%.cpp=%.o}

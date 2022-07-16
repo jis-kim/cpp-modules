@@ -14,7 +14,7 @@ WrongAnimal::WrongAnimal(void) : type_("alien") {
             << "Defalut Constructor.\n";
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal& src) : type_(src.type_) {
+WrongAnimal::WrongAnimal(const WrongAnimal& src) : type_(src.type_) {
   std::cout << L_RED << "Wrong " << L_BLUE << "Animal " << RESET
             << "Copy Constructor.\n";
 }

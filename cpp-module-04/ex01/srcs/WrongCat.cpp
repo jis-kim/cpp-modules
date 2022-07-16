@@ -15,7 +15,7 @@ WrongCat::WrongCat(void) : WrongAnimal() {
             << "Defalut Constructor.\n";
 }
 
-WrongCat::WrongCat(WrongCat& src) : WrongAnimal(src) {
+WrongCat::WrongCat(const WrongCat& src) : WrongAnimal(src) {
   type_ = "WrongCat";
   std::cout << L_RED << "Wrong " << L_CYAN << "Cat " << RESET
             << "Copy Constructor.\n";

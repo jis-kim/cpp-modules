@@ -1,12 +1,12 @@
 /**
- * @file WrongAnimal.hpp
+ * @file Animal.hpp
  * @author Jisu Kim (hellojs242@gmail.com)
- * @date 2022-07-15
- * @brief Wrong base
+ * @date 2022-07-14
+ * @brief Base Class - ex01
  */
 
-#ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #define L_CYAN "\033[1;96m"
 #define L_RED "\033[1;31m"
@@ -18,20 +18,20 @@
 
 #include <string>
 
-class WrongAnimal {
+class Animal {
  protected:
   std::string type_;
 
  public:
-  WrongAnimal(void);
-  WrongAnimal(const WrongAnimal& src);
+  Animal(void);
+  Animal(const Animal& src);
 
-  WrongAnimal& operator=(const WrongAnimal& rhs);
+  Animal& operator=(const Animal& rhs);
 
-  void makeSound(void) const;
+  virtual void makeSound(void) const;
   std::string getType(void) const;
 
-  ~WrongAnimal(void);
+  virtual ~Animal(void);
 };
 
-#endif  // WRONGANIMAL_HPP
+#endif  // ANIMAL_HPP

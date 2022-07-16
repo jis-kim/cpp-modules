@@ -24,7 +24,7 @@ class Animal {
 
  public:
   Animal(void);
-  Animal(Animal& src);
+  Animal(const Animal& src);
 
   Animal& operator=(const Animal& rhs);
 

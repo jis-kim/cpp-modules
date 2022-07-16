@@ -2,7 +2,7 @@
  * @file WrongAnimal.hpp
  * @author Jisu Kim (hellojs242@gmail.com)
  * @date 2022-07-15
- * @brief Wrong base
+ * @brief Wrong base - ex01
  */
 
 #ifndef WRONGANIMAL_HPP

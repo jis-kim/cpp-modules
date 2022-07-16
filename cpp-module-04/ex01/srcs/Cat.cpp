@@ -14,7 +14,7 @@ Cat::Cat(void) : Animal() {
   std::cout << L_CYAN << "Cat " << RESET << "Defalut Constructor.\n";
 }
 
-Cat::Cat(const Cat& src) : Animal(src) {
+Cat::Cat(Cat& src) : Animal(src) {
   type_ = "Cat";
   std::cout << L_CYAN << "Cat " << RESET << "Copy Constructor.\n";
 }

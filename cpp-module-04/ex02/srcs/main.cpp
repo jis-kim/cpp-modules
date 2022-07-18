@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author Jisu Kim (hellojs242@gmail.com)
  * @date 2022-07-14
- * @brief test code of animals - ex01
+ * @brief test code of animals - ex02
  */
 
 #include <iostream>
@@ -14,7 +14,6 @@
 
 void test00(void) {
   std::cout << "\n===================== Normal Case ======================\n\n";
-  const Animal* meta = new Animal();
   const Animal* j = new Dog();
   const Animal* i = new Cat();
 
@@ -25,7 +24,6 @@ void test00(void) {
   std::cout << '\n';
   i->makeSound();  // will output the cat sound!
   j->makeSound();
-  meta->makeSound();
 
   std::cout << "\n===================== Wrong Case =======================\n\n";
 
@@ -46,7 +44,6 @@ void test00(void) {
 
   std::cout << '\n';
 
-  delete meta;
   delete j;
   delete i;
 
@@ -125,6 +122,9 @@ void exitHandler() { system("leaks brain"); }
 int main() {
   test00();
   test01();
+
+  // Animal animal;
+  // animal.makeSound();
 
   atexit(exitHandler);
   return 0;

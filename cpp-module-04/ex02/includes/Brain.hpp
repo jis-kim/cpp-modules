@@ -2,7 +2,7 @@
  * @file Brain.hpp
  * @author Jisu Kim (hellojs242@gmail.com)
  * @date 2022-07-16
- * @brief Brain of animals - ex01
+ * @brief Brain of animals - ex02
  */
 
 #ifndef BRAIN_HPP

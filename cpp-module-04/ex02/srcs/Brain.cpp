@@ -2,7 +2,7 @@
  * @file Brain.cpp
  * @author Jisu Kim (hellojs242@gmail.com)
  * @date 2022-07-16
- * @brief I'm Brian of Animals !!!!!!!!!! - ex01
+ * @brief I'm Brian of Animals !!!!!!!!!! - ex02
  */
 
 #include "Brain.hpp"

@@ -1,0 +1,24 @@
+/**
+ * @file ICharacter.hpp
+ * @author Jisu Kim (hellojs242@gmail.com)
+ * @date 2022-07-19
+ * @brief Interface of Character
+ */
+
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
+
+#include <string>
+
+class AMateria;  // reference도 되나?
+
+class ICharacter {
+ public:
+  virtual ~ICharacter() {}
+  virtual std::string const& getName() const = 0;
+  virtual void equip(AMateria* m) = 0;
+  virtual void unequip(int idx) = 0;
+  virtual void use(int idx, ICharacter& target) = 0;
+};
+
+#endif  // ICHARACTER_HPP

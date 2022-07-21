@@ -11,6 +11,7 @@
 #include <iostream>
 
 #include "AMateria.hpp"
+#include "Color.hpp"
 #include "ICharacter.hpp"
 
 class Character : public ICharacter {
@@ -29,6 +30,8 @@ class Character : public ICharacter {
   void equip(AMateria* m);
   void unequip(int idx);
   void use(int idx, ICharacter& target);
+
+  unsigned int getFullSlot(void) const;
 
   virtual ~Character(void);
 };

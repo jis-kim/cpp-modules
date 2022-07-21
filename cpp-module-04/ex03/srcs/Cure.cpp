@@ -23,8 +23,8 @@ Cure& Cure::operator=(const Cure& rhs) {
 Cure* Cure::clone(void) const { return (new Cure()); }
 
 void Cure::use(ICharacter& target) {
-  std::cout << "* " << L_YELLOW << "heals " << RESET << "at "
-            << target.getName() << "'s wound * \n";
+  std::cout << "* " << L_YELLOW << "heals " << RESET << target.getName()
+            << "'s wound * \n";
 }
 
 Cure::~Cure(void) {}

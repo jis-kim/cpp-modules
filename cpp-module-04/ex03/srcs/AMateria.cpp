@@ -25,8 +25,6 @@ AMateria& AMateria::operator=(const AMateria& rhs) {
 // Returns the materia type
 std::string const& AMateria::getType(void) const { return (type); }
 
-void AMateria::use(ICharacter& target) {
-  std::cout << "AMateria can't be used!";
-}
+void AMateria::use(ICharacter& target) { (void)target; }
 
 AMateria::~AMateria(void) {}

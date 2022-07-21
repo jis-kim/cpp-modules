@@ -8,7 +8,7 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				=  #Name of program
+NAME				= myKeyboardIsCute
 
 INC_DIR			= ./includes/
 
@@ -16,6 +16,11 @@ SRCS_DIR		= ./srcs/
 
 SRCS				= $(addprefix $(SRCS_DIR), \
 								main.cpp \
+								AMateria.cpp \
+								Character.cpp \
+								Cure.cpp \
+								Ice.cpp \
+								MateriaSource.cpp \
 							)
 
 OBJS				= ${SRCS:%.cpp=%.o}

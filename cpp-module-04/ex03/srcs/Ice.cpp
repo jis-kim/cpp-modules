@@ -9,7 +9,8 @@
 
 #include <iostream>
 
-#include "color.hpp"
+#include "Color.hpp"
+#include "ICharacter.hpp"
 
 Ice::Ice(void) : AMateria("ice") {}
 

@@ -46,7 +46,7 @@ Returns 0 if the type is unknown.
  */
 AMateria* MateriaSource::createMateria(std::string const& type) {
   for (int i = 0; i < 4; ++i) {
-    if (inventory_[i]->getType() == type) {
+    if (inventory_[i] && inventory_[i]->getType() == type) {
       return (inventory_[i]->clone());
     }
   }

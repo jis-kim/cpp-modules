@@ -56,7 +56,7 @@ void Character::unequip(int idx) {
 void Character::use(int idx, ICharacter& target) {
   if (idx < 0 || idx > 3)
     std::cout << L_RED << "index is out of range.\n" << RESET;
-  else
+  else if (inventory_[idx])
     (inventory_[idx])->use(target);
 }
 

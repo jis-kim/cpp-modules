@@ -5,6 +5,8 @@
  * @brief Bureaucrat: an official in a government department, in particular one
  * perceived as being concerned with procedural correctness at the expense of
  * people's needs.
+ *
+ * - ex01 -
  */
 
 #ifndef BUREAUCRAT_HPP
@@ -13,6 +15,8 @@
 #include <exception>
 #include <iostream>
 #include <string>
+
+class Form;
 
 /**
  * @brief highest grade : 1, lowest grade : 150
@@ -36,12 +40,12 @@ class Bureaucrat {
 
   void increaseGrade(void);
   void decreaseGrade(void);
+  void signForm(Form& f);
 
   virtual ~Bureaucrat(void);
 
   /**
    * @brief don't have to be designed in Orthodox Canonical From.
-   * throw() means this function never throws exception.
    *
    */
   class GradeTooHighException : public std::exception {

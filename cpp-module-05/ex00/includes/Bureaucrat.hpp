@@ -11,6 +11,7 @@
 #define BUREAUCRAT_HPP
 
 #include <exception>
+#include <iostream>
 #include <string>
 
 /**
@@ -25,13 +26,15 @@ class Bureaucrat {
  public:
   Bureaucrat(void);
   Bureaucrat(const Bureaucrat& src);
+  Bureaucrat(const std::string& name);
+  Bureaucrat(const std::string& name, const int grade);
 
-  Bureaucrat& operator=(const Bureaucrat& rhs) const;
+  Bureaucrat& operator=(const Bureaucrat& rhs);
   std::string getName(void) const;
   int getGrade(void) const;
 
-  Bureaucrat& operator++(void);
-  Bureaucrat& operator--(void);
+  void increaseGrade(void);
+  void decreaseGrade(void);
 
   virtual ~Bureaucrat(void);
 
@@ -47,5 +50,7 @@ class Bureaucrat {
     const char* what() const throw();
   };
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs);
 
 #endif  // BUREAUCRAT_HPP

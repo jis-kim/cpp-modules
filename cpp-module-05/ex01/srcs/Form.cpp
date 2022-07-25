@@ -22,7 +22,7 @@ Form::Form(const std::string& name)
     : name_(name), signed_(false), signGrade_(150), executeGrade_(150) {}
 
 Form::Form(const std::string& name, const int signGrade, const int executeGrade)
-    : name_(name_),
+    : name_(name),
       signed_(false),
       signGrade_(signGrade),
       executeGrade_(executeGrade) {

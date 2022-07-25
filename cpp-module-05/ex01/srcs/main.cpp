@@ -9,24 +9,20 @@
 
 int main(void) {
   try {
+    Form form("myForm", 72, 72);
     Bureaucrat king("king", 1);
+    Bureaucrat jisu("jisu", 150);
 
-    std::cout << king << '\n';
+    jisu.signForm(form);
+    king.signForm(form);
 
-    king.increaseGrade();
-    std::cout << "ha ha ha ha ha\n";
+    Form fake("fake", -1, -1);
 
-  } catch (std::exception& e) {
-    std::cout << e.what() << '\n';
-  }
+    Bureaucrat bu("bu", 74);
+    form.beSigned(bu);
 
-  try {
-    Bureaucrat prince("prince", 2);
+    king.signForm(form);
 
-    for (int i = 0; i < 1000; i++) {
-      std::cout << '[' << i << "] " << prince << '\n';
-      prince.decreaseGrade();
-    }
   } catch (std::exception& e) {
     std::cout << e.what() << '\n';
   }

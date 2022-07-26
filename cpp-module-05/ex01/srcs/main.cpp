@@ -13,17 +13,20 @@ int main(void) {
     Bureaucrat king("king", 1);
     Bureaucrat jisu("jisu", 150);
 
-    jisu.signForm(form);
+    std::cout << form << '\n';
+
+    // jisu.signForm(form);
+    king.signForm(form);
+    std::cout << form << '\n';
+
+    // Form fake("fake", -1, -1);
+
+    // Bureaucrat bu("bu", 74);
+    // form.beSigned(bu);
+
     king.signForm(form);
 
-    Form fake("fake", -1, -1);
-
-    Bureaucrat bu("bu", 74);
-    form.beSigned(bu);
-
-    king.signForm(form);
-
-  } catch (std::exception& e) {
+  } catch (const std::exception& e) {
     std::cout << e.what() << '\n';
   }
 }

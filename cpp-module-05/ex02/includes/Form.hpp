@@ -17,6 +17,9 @@ class Form {
   const int signGrade_;
   const int executeGrade_;
 
+ protected:
+  void checkGrade(const Bureaucrat& executor) const;
+
  public:
   Form(void);
   Form(const Form& src);
@@ -30,7 +33,7 @@ class Form {
   int getSignGrade(void) const;
   int getExecuteGrade(void) const;
 
-  void beSigned(const Bureaucrat& b);
+  void beSigned(const Bureaucrat& signer);
   virtual void execute(const Bureaucrat& executor) const = 0;
 
   virtual ~Form(void);

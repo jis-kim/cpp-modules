@@ -30,7 +30,7 @@ class Form {
   int getSignGrade(void) const;
   int getExecuteGrade(void) const;
 
-  void beSigned(const Bureaucrat& b);
+  void beSigned(const Bureaucrat& signer);
 
   virtual ~Form(void);
 

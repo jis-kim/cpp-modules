@@ -59,6 +59,11 @@
     "stdexcept": "cpp",
     "streambuf": "cpp",
     "string_view": "cpp",
-    "system_error": "cpp"
+    "system_error": "cpp",
+    "deque": "cpp",
+    "fstream": "cpp",
+    "iomanip": "cpp",
+    "stack": "cpp",
+    "filesystem": "cpp"
   }
 }

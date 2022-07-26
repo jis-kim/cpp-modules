@@ -14,7 +14,7 @@ int main(void) {
     std::cout << king << '\n';
     king.increaseGrade();
 
-  } catch (std::exception& e) {
+  } catch (const std::exception& e) {
     std::cout << e.what() << '\n';
   }
 
@@ -25,7 +25,7 @@ int main(void) {
       std::cout << '[' << i << "] " << prince << '\n';
       prince.decreaseGrade();
     }
-  } catch (std::exception& e) {
+  } catch (const std::exception& e) {
     std::cout << e.what() << '\n';
   }
 }

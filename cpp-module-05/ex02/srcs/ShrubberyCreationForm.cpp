@@ -5,14 +5,14 @@
  * @brief draw tree
  */
 
-#include <fstream>
+#include "ShrubberyCreationForm.hpp"
 
-#include "ShrubberyCreationFrom.hpp"
+#include <fstream>
 
 ShruberryCreationForm::ShruberryCreationForm(void) : Form() {}
 
 ShruberryCreationForm::ShruberryCreationForm(const ShruberryCreationForm& src)
-    : Form(src) {}
+    : Form(src), target_(src.target_) {}
 
 ShruberryCreationForm::ShruberryCreationForm(const std::string& target)
     : Form("shruberryCreation", 145, 137), target_(target) {}
@@ -25,10 +25,7 @@ ShruberryCreationForm& ShruberryCreationForm::operator=(
 }
 
 void ShruberryCreationForm::execute(const Bureaucrat& executor) const {
-  if (!this->getSigned()) throw UnsignedFormException();
-  if (executor.getGrade() > this->getExecuteGrade())
-    throw GradeTooLowException();
-
+  checkGrade(executor);
   std::ofstream output;
   output.exceptions(std::ofstream::failbit | std::ofstream::badbit);
   output.open(target_ + "_shrubbery", std::fstream::out);

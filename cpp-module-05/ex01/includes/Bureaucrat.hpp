@@ -40,7 +40,7 @@ class Bureaucrat {
 
   void increaseGrade(void);
   void decreaseGrade(void);
-  void signForm(Form& f);
+  void signForm(Form& form);
 
   virtual ~Bureaucrat(void);
 

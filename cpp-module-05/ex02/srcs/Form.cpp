@@ -43,9 +43,15 @@ int Form::getSignGrade(void) const { return signGrade_; }
 
 int Form::getExecuteGrade(void) const { return executeGrade_; }
 
-void Form::beSigned(const Bureaucrat& b) {
-  if (b.getGrade() > signGrade_) throw GradeTooLowException();
+void Form::beSigned(const Bureaucrat& signer) {
+  if (signer.getGrade() > signGrade_) throw GradeTooLowException();
   signed_ = true;
+}
+
+void Form::checkGrade(const Bureaucrat& executor) const {
+  if (!this->getSigned()) throw UnsignedFormException();
+  if (executor.getGrade() > this->getExecuteGrade())
+    throw GradeTooLowException();
 }
 
 Form::~Form(void) {}

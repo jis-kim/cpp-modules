@@ -8,7 +8,7 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				=  form
+NAME				=  forms
 
 INC_DIR			= ./includes/
 
@@ -18,6 +18,9 @@ SRCS				= $(addprefix $(SRCS_DIR), \
 								main.cpp \
 								Bureaucrat.cpp \
 								Form.cpp \
+								PresidentialPardonForm.cpp \
+								RobotomyRequestForm.cpp \
+								ShrubberyCreationForm.cpp \
 							)
 
 OBJS				= ${SRCS:%.cpp=%.o}

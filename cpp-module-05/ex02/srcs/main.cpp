@@ -5,25 +5,42 @@
  * @brief Let's test exceptions!!!!!!!
  */
 
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void) {
   try {
-    Form form("myForm", 72, 72);
-    Bureaucrat king("king", 1);
-    Bureaucrat jisu("jisu", 150);
+    ShruberryCreationForm sh("shell");   // 145, 137
+    RobotomyRequestForm rb("rbtree");    // 72, 45
+    PresidentialPardonForm pf("proof");  // 25, 5
 
-    jisu.signForm(form);
-    king.signForm(form);
+    Bureaucrat jisu("jisu", 11);
 
-    Form fake("fake", -1, -1);
+    // jisu.executeForm(sh);
 
-    Bureaucrat bu("bu", 74);
-    form.beSigned(bu);
+    jisu.signForm(sh);
+    jisu.signForm(rb);
+    jisu.signForm(pf);
 
-    king.signForm(form);
+    std::cout << '\n';
 
-  } catch (std::exception& e) {
+    jisu.executeForm(sh);
+    jisu.executeForm(rb);
+    // jisu.executeForm(pf);  // throw exception
+
+    std::cout << '\n';
+
+    Bureaucrat king("AMAZING KING", 1);
+    king.executeForm(sh);
+    king.executeForm(rb);
+    king.executeForm(pf);
+
+    std::cout << '\n';
+
+    Bureaucrat jule("jule", 150);
+
+  } catch (const std::exception& e) {
     std::cout << e.what() << '\n';
   }
 }

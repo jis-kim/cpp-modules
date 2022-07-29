@@ -15,12 +15,20 @@ int main(void) {
     Intern someRandomIntern;
     Form* rrf;
     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    Bureaucrat br("someone", 13);
 
+    br.signForm(*rrf);
+    rrf->execute(br);
+
+    Form* scf;
+    scf = someRandomIntern.makeForm("shrubbery creation", "BERRYBBERY");
+
+    Form* ppf;
+    ppf = someRandomIntern.makeForm("presidential pardon", "prisoner");
+
+    delete ppf;
+    delete scf;
     delete rrf;
-
-    Form* shr;
-    // ㅇㅏㄴ도ㅣㄴ다..
-    shr = someRandomIntern.makeForm("sjribberu creation", "Bender");
   } catch (const std::exception& e) {
     std::cout << e.what() << '\n';
   }

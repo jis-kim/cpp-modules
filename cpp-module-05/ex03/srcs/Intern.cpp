@@ -45,16 +45,15 @@ Form* Intern::makeForm(const std::string& name, const std::string& target) {
   for (i = 0; i < 3; ++i) {
     if (formNames[i] == name) {
       ret = (this->*f[i])(target);
-      break;
+      std::cout << "Intern creates " << L_CYAN << name << '\n' << RESET;
+      return (ret);
     }
   }
-  if (i == 4) throw WrongFormNameException();
-  std::cout << "Intern creates " << L_CYAN << name << '\n' << RESET;
-  return (ret);
+  throw WrongFormNameException();
 }
 
 Intern::~Intern(void) {}
 
 const char* Intern::WrongFormNameException::what() const throw() {
-  return "\033[1;35Form name is wrong.\033[0m";
+  return "\033[1;35mForm name is wrong.\033[0m";
 }

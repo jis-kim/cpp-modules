@@ -7,7 +7,6 @@
 
 #include <cfloat>
 #include <cmath>
-#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -45,40 +44,42 @@ void convertFloat(const double d) {
     if (!std::isinf(d) && (d < -FLT_MAX || d > FLT_MAX))
       throw std::invalid_argument("convertFloat : no conversion");
     float f = static_cast<float>(d);
-    std::cout << "float: " << f << "f\n";
+    std::cout << "float: " << f;
+    if (static_cast<int>(d) == f) std::cout << ".0";
+    std::cout << "f\n";
   } catch (const std::exception& e) {
     std::cout << "float: impossible\n";
   }
 }
 
-void convertDouble(const double d) { std::cout << "double: " << d << '\n'; }
+void convertDouble(const double d) {
+  std::cout << "double: " << d;
+  if (static_cast<int>(d) == d) std::cout << ".0";
+  std::cout << '\n';
+}
 
 int main(int argc, char** argv) {
   if (argc != 2 || argv[1][0] == '\0') {
     std::cout << L_RED << "Argument Error\n";
     return 1;
   }
-  std::cout << std::showpoint << std::fixed;
-  std::cout.precision(1);
 
-  double p;
+  double d;
   try {
     if (argv[1][1] == '\0' && !isdigit(argv[1][0]))  // char
-      p = static_cast<double>(argv[1][0]);
+      d = static_cast<double>(argv[1][0]);
     else {
       char* end = NULL;
-      p = std::strtod(argv[1], &end);
+      d = std::strtod(argv[1], &end);
       if ((*end != '\0' && *end != 'f') || errno == ERANGE)
         throw std::invalid_argument("convertFloat: no conversion");
     }
-    convertChar(p);
-    convertInt(p);
-    convertFloat(p);
-    convertDouble(p);
+    convertChar(d);
+    convertInt(d);
+    convertFloat(d);
+    convertDouble(d);
   } catch (std::exception& e) {
-    std::cout << "char: impossible\n"
-              << "int: impossible\n"
-              << "float: impossible\n"
-              << "double: impossible\n";
+    std::cout << "char: impossible\nint: impossible\nfloat: "
+                 "impossible\ndouble: impossible\n";
   }
 }

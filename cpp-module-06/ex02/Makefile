@@ -8,13 +8,14 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				= dynamic
+NAME				= identify
 INC_DIR			= ./includes/
 
 SRCS_DIR		= ./srcs/
 
 SRCS				= $(addprefix $(SRCS_DIR), \
 								main.cpp \
+								Base.cpp \
 							)
 
 OBJS				= ${SRCS:%.cpp=%.o}

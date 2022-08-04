@@ -15,6 +15,7 @@ SRCS_DIR		= ./srcs/
 
 SRCS				= $(addprefix $(SRCS_DIR), \
 								main.cpp \
+								Array.cpp \
 							)
 
 OBJS				= ${SRCS:%.cpp=%.o}

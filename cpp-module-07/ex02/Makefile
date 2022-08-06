@@ -8,14 +8,13 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				= identify
+NAME				= arrayTest
 INC_DIR			= ./includes/
 
 SRCS_DIR		= ./srcs/
 
 SRCS				= $(addprefix $(SRCS_DIR), \
 								main.cpp \
-								Array.cpp \
 							)
 
 OBJS				= ${SRCS:%.cpp=%.o}

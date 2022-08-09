@@ -81,6 +81,5 @@ int main(void) {
   } catch (const std::exception& e) {
     std::cout << e.what() << '\n';
   }
-
   return 0;
 }

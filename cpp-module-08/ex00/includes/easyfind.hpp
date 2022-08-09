@@ -17,20 +17,15 @@
  * @param container
  * @param toFind
  * @return int
- * 아니 뭐 리턴해야되지?????? 흠~~~~
- * stack과 queue에는 begin end가 없는데 어칸담?
  */
 
-class CannotFindValueException : public std::exception {
-  const char* what(void) const throw();
-};
-
 template <typename T>
-int& easyfind(T& container, const int toFind) {
-  for (iterator it = T.begin(); it == T.end(); ++it) {
-    if ((*it) == toFind) return *it;
-  }
-  throw CannotFindValueException();
+typename T::iterator easyfind(T& container, const int toFind) {
+  typename T::iterator it =
+      std::find(container.begin(), container.end(), toFind);
+  if (it == container.end())
+    throw std::logic_error("There is no element to find");
+  return it;
 }
 
 #endif  // EASYFIND_HPP

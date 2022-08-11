@@ -8,17 +8,13 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
-#include <iterator>
+#include <iostream>
 #include <vector>
 
-/**
- * @brief 일단 vector로 대충 그려봤는데 이거 아닐 거 같음
- * 아니지 맘대로 STL쓰라며? 그럼 써도 되는 거 아닐까?
- */
 class Span {
  private:
   unsigned int N_;
-  std::vector<int> span_;
+  std::vector<int> numbers_;
 
  public:
   Span(void);
@@ -30,10 +26,12 @@ class Span {
   void addNumber(const int number);
   int shortestSpan(void) const;
   int longestSpan(void) const;
-  void addNumberSequence(interator pos, std::vector<int>::iterator begin,
+  void addNumberSequence(std::vector<int>::iterator pos,
+                         std::vector<int>::iterator begin,
                          std::vector<int>::iterator end);
+  size_t size(void) const;
 
   virtual ~Span(void);
-}
+};
 
 #endif  // SPAN_HPP

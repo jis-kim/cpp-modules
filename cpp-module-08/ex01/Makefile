@@ -8,13 +8,14 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				= iter
+NAME				= span
 INC_DIR			= ./includes/
 
 SRCS_DIR		= ./srcs/
 
 SRCS				= $(addprefix $(SRCS_DIR), \
 								main.cpp \
+								span.cpp \
 							)
 
 OBJS				= ${SRCS:%.cpp=%.o}

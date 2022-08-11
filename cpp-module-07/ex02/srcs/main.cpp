@@ -4,7 +4,7 @@
 #define MAX_VAL 750
 
 void test(void) {
-  Array<int> numbers(UINT_MAX - 3);
+  Array<int> numbers(MAX_VAL);
   int* mirror = new int[MAX_VAL];
   srand(time(NULL));
   for (int i = 0; i < MAX_VAL; i++) {
@@ -12,6 +12,7 @@ void test(void) {
     numbers[i] = value;
     mirror[i] = value;
   }
+  std::cout << "numbers size " << numbers.size() << '\n';
   // SCOPE
   {
     Array<int> tmp = numbers;
@@ -38,6 +39,15 @@ void test(void) {
   for (int i = 0; i < MAX_VAL; i++) {
     numbers[i] = rand();
   }
+
+  std::cout << "numbers size " << numbers.size() << '\n';
+
+  const Array<int> test(numbers);
+
+  for (int i = 0; i < MAX_VAL; ++i) {
+    std::cout << "(" << i << ")" << test[i] << ", ";
+  }
+
   delete[] mirror;
 
   Array<char> charArray(100);
@@ -49,6 +59,6 @@ void test(void) {
 
 int main(int, char**) {
   test();
-  system("leaks arrayTest");
+  // system("leaks arrayTest");
   return 0;
 }

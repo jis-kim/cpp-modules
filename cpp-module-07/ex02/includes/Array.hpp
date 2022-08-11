@@ -19,7 +19,11 @@ class Array {
  public:
   Array(void) : elements_(NULL), size_(0) {}
 
-  Array(const Array& src) : size_(src.size_) { elements_ = new T[src.size_]; }
+  Array(const Array& src) : size_(src.size_) {
+    elements_ = new T[src.size_];
+    for (unsigned int i = 0; i < src.size_; ++i)
+      elements_[i] = src.elements_[i];
+  }
 
   Array(const unsigned int n) : size_(n) { elements_ = new T[n]; }
 

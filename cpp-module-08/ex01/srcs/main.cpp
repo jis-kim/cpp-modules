@@ -21,17 +21,27 @@ int main(void) {
 
   try {
     Span s(10);
-    s.addNumber(3);
-    s.addNumber(1);
     srand(time(NULL));
     for (int i = 0; i < 10; ++i) {
-      s.addNumber(rand() % 10);
+      s.addNumber(rand() % 100);
     }
-    for (int i = 0; i < 10; ++i) {
-    }
+    s.print();
+    std::cout << '\n';
+
+    std::cout << "shortest span: " << s.shortestSpan() << '\n';
+    std::cout << "longest span: " << s.longestSpan() << '\n';
+
+    Span copyS(s);
+    copyS.print();
+
+    Span copycopyS;
+    copycopyS = s;
+    copycopyS.print();
+
   } catch (const std::exception& e) {
     std::cout << e.what() << '\n';
   }
 
+  system("leaks span");
   return 0;
 }

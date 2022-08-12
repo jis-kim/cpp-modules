@@ -28,7 +28,7 @@ int Span::shortestSpan(void) const {
   if (numbers_.size() <= 1) throw std::exception();
   std::vector<int> tmp(numbers_);
   std::sort(tmp.begin(), tmp.end());
-  int min = 0;
+  int min = INT_MAX;
   for (std::vector<int>::iterator i = tmp.begin(); (i + 1) != tmp.end(); ++i) {
     if (*(i + 1) - *i < min) min = *(i + 1) - *i;
   }
@@ -50,5 +50,14 @@ void Span::addNumberSequence(std::vector<int>::iterator pos,
 }
 
 size_t Span::size(void) const { return numbers_.size(); }
+
+void Span::print(void) const {
+  std::cout << "[ ";
+  for (std::vector<int>::const_iterator it = numbers_.begin();
+       it != numbers_.end(); it++) {
+    std::cout << *it << ", ";
+  }
+  std::cout << " ]\n";
+}
 
 Span::~Span(void) { numbers_.clear(); }

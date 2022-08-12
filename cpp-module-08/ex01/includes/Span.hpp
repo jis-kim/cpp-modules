@@ -30,6 +30,7 @@ class Span {
                          std::vector<int>::iterator begin,
                          std::vector<int>::iterator end);
   size_t size(void) const;
+  void print(void) const;
 
   virtual ~Span(void);
 };

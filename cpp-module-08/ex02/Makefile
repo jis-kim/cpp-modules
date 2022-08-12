@@ -8,7 +8,7 @@ else
 	CXXFLAGS	= --std=c++98 -Wall -Wextra -Werror
 endif
 
-NAME				= arrayTest
+NAME				= mutantStack
 INC_DIR			= ./includes/
 
 SRCS_DIR		= ./srcs/

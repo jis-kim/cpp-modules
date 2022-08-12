@@ -9,17 +9,17 @@
 
 #include "MutantStack.hpp"
 
-int main() {
+void test(void) {
   MutantStack<int> mstack;
 
   mstack.push(5);
   mstack.push(17);
 
-  std::cout << mstack.top() << std::endl;
+  std::cout << mstack.top() << "\n\n";
 
   mstack.pop();
 
-  std::cout << mstack.size() << std::endl;
+  std::cout << mstack.size() << "\n\n";
 
   mstack.push(3);
   mstack.push(5);
@@ -36,6 +36,20 @@ int main() {
     std::cout << *it << std::endl;
     ++it;
   }
+  std::cout << '\n';
   std::stack<int> s(mstack);
+
+  MutantStack<char> test;
+
+  for (int i = 0; i < 10; i++) test.push(i + '0');
+  for (; !test.empty(); test.pop()) {
+    std::cout << test.top() << '\n';
+  }
+}
+
+int main() {
+  test();
+
+  system("leaks mutantStack");
   return 0;
 }
